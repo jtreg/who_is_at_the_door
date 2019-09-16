@@ -1,0 +1,65 @@
+instructions:
+
+sudo service rabbitmq-server start
+ (include as a startup script)
+
+ 1. python3 emit_twitter.py
+ now ~/_work/sendTwitterFanout.py
+rabbit_esp8266.py
+
+ 2. python3 rabbit_esp8266Direct.py
+ now ~/_work/sendESPDirect.py
+ 3. python rabbitmq_stopAndSearchListDirect.py
+ now ~/_work/sendStopAndSearchDirect.py
+
+ 4. python3 receiveStopandsearchDirectAndFanoutAndESP8266.py info
+now ~/_work/receiveTwitterStopandsearchESP.py
+
+python face_tracker_picam.py
+
+to get stop and search on it own:
+python3 receiveStopandsearchDirect.py infp
+
+
+
+python3 send_gpio_presses.py
+python3 receive gpio_webbrowser.py
+
+
+for esp8266:
+python3 receive_ESP8266.py info
+python3 rabbit_esp8266.py
+
+
+pi01 10.10.10.5
+---------------
+
+python3 /home/pi/face/face_tracker_picam.py
+also
+receive_gpio_fanout.py
+python3 send_gpio_presses.py
+
+
+pi02 10.10.10.9
+----------------
+sudo service rabbitmq-server start
+ (included as a startup script and tested with rabbitmq console on localhost:15672
+
+
+./start.sh from an external keyboard
+
+pi04 10.10.10.8
+---------------
+camera mashup
+python3 receive_gpio_webbrowser.py
+
+pi05 10.10.10.6
+---------------
+camera mashup
+python3 receive_gpio_webbrowser.py
+
+pi06 10.10.10.12
+----------------
+connect via ssh
+./start &
+gets it going
